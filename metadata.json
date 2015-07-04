@@ -1,13 +1,29 @@
 {
   "name": "solarflare-ssfe",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": "Patrick Dehkordi",
   "summary": "SolarSecure Filter Engine",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "source": "https://github.com/PatrickDehkordi/solarsecure.git",
   "project_page": "https://forge.puppetlabs.com/solarflare/ssfe",
   "issues_url": "https://github.com/PatrickDehkordi/solarsecure/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5.0",
+        "6.0"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "10.04"
+      ]
+    }
+  ],
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+    {"name":"puppetlabs-stdlib","version_requirement":">= 4.6.0"}
   ]
 }
