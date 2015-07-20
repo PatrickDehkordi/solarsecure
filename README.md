@@ -19,17 +19,13 @@ SolarSecure Filter Engine Puppet Module.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
+Firewall adapter rules implementation
 
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+Checks installation, configuration, manages Firwall rules implementation.  
 
 ## Setup
 
-### What sfc affects
+### What ssfc affects
 
 * A list of files, packages, services, or operations that the module will alter,
   impact, or execute on the system it's installed on.

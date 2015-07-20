@@ -31,8 +31,8 @@
 #
 # Author Name <author@domain.com>
 #
-class solarsecure ( 	
-		$Install_Directory=	'/root/ssfe', 
+class ssfe ( 	
+		$Install_Directory=	'/root/ssfe',
 		$MicroCodeFile = 	'puppet.mc',	#File name
                 $Filter = 		'source_net', 	#Filter name
 		$TableFile = 		'table.txt',	#IP Table
@@ -50,7 +50,7 @@ class solarsecure (
 		$MaxObjects = '64',
 		$MaxAddPoint = '128',
 		$MaxNet = '64',
-		$DefaultAction = 'accept', ) 
+		$DefaultAction = 'accept', )
 
 		#(first octet * 16777216) + (second octet * 65536) + (third octet * 256) + (fourth octet)
 
@@ -76,7 +76,7 @@ class solarsecure (
 	package { 'kernel-module-sfc-RHEL6-2.6.32-431.el6.x86_64-4.1.0.6734-1.x86_64':
   		ensure => '4.1.0.6734-1',
   		before => File["$Install_Directory/$MicroCodeFile"],
-	}  	
+	}
 
         file { $TableFile:
                 ensure  => 'present',
@@ -90,7 +90,7 @@ class solarsecure (
   		ensure  => 'present',
   		path    => "$Install_Directory/$MicroCodeFile",
   		mode    => 0644,
-  		content => 
+  		content =>
 "set_max_channels ${MaxChannels}
 set_default_action ${DefaultAction}
 set_max_objects ${MaxObjects}
@@ -113,7 +113,7 @@ start_code
                 load_ip4_src r2
                 test_eq r2 ${A_SourceIP}
                 jmp_if ${A_Action}
-	
+
         destination_ip:
                 test_ip4
                 jmp_if_not default
@@ -134,7 +134,7 @@ start_code
                 append_ip4_dst pkey
                 lookup table p1
                 stop
-	
+
 	source_port:
     		test_ip4
     		jmp_if_not default
@@ -144,7 +144,7 @@ start_code
     		test_eq r2 ${A_SourcePort}
     		jmp_if source_ip
 
-	
+
 	destination_port:
 		test_ip4
                 jmp_if_not default
@@ -171,7 +171,7 @@ ip4tbl_insert table $A_SourceNetwork $A_Action"
 	service { 'network':
   		ensure => 'running',
   		enable => 'true',
-	}	
+	}
 
 	service { 'iptables':
   		ensure => 'stopped',
@@ -239,4 +239,3 @@ ip4tbl_insert table $A_SourceNetwork $A_Action"
 	}
 
 }
-

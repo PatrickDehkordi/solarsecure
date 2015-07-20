@@ -1,6 +1,6 @@
 {
   "name": "solarflare-ssfe",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "author": "Patrick Dehkordi",
   "summary": "SolarSecure Filter Engine",
   "license": "Apache-2.0",
